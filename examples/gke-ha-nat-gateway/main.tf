@@ -25,7 +25,9 @@ variable gke_node_tag {
 variable region {
   default = "us-central1"
 }
-
+variable region_au {
+  default = "australia-southeast1"
+}
 variable zone1 {
   default = "us-central1-a"
 }
@@ -37,6 +39,9 @@ variable zone2 {
 variable zone3 {
   default = "us-central1-c"
 }
+variable zone4 {
+  default = "australia-southeast1-b"
+}
 
 variable name {
   default = "gke-ha"
@@ -47,7 +52,7 @@ variable network {
 }
 
 variable subnetwork {
-  default = ""
+  default = "my-subnet"
 }
 
 provider google {
@@ -79,8 +84,8 @@ module "nat-zone-2" {
 module "nat-zone-3" {
   source         = "../../"
   name           = "${var.name}-"
-  region         = "${var.region}"
-  zone           = "${var.zone3}"
+  region         = "${var.region_au}"
+  zone           = "${var.zone4}"
   tags           = ["${var.gke_node_tag}"]
   network        = "${var.network}"
   subnetwork     = "${var.subnetwork == "" ? var.network : var.subnetwork}"

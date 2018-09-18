@@ -1,0 +1,7 @@
+CLUSTER_NAME=my-regional-cluster
+REGION=us-central1
+ZONE_1=us-central1-a
+ZONE_2=us-central1-b
+ZONE_3=australia-southeast1-b
+NETWORK=default
+SUBNETWORK=my-subnet
